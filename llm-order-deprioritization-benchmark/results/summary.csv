@@ -1,0 +1,13 @@
+model,model_id,run,format_valid,format_clean_json,count_correct,overlap_count,overlap_pct,hallucinated_count,hallucinated_ids,missed_baseline_ids,extra_ids,parsed_ids
+opus,claude-opus-4-20250514,1,True,True,True,6,100.0,0,[],[],[],"[""ORD-003"", ""ORD-006"", ""ORD-002"", ""ORD-005"", ""ORD-004"", ""ORD-007""]"
+opus,claude-opus-4-20250514,2,True,True,True,6,100.0,0,[],[],[],"[""ORD-003"", ""ORD-006"", ""ORD-002"", ""ORD-005"", ""ORD-004"", ""ORD-007""]"
+opus,claude-opus-4-20250514,3,True,True,True,6,100.0,0,[],[],[],"[""ORD-003"", ""ORD-006"", ""ORD-002"", ""ORD-005"", ""ORD-004"", ""ORD-007""]"
+opus_consistency,,ALL,,,,,,,,,,jaccard_avg=1.000 identical=True unique_sets=1
+sonnet,claude-sonnet-4-20250514,1,True,True,True,4,66.7,0,[],"[""ORD-004"", ""ORD-005""]","[""ORD-001"", ""ORD-008""]","[""ORD-003"", ""ORD-006"", ""ORD-002"", ""ORD-007"", ""ORD-008"", ""ORD-001""]"
+sonnet,claude-sonnet-4-20250514,2,True,True,True,4,66.7,0,[],"[""ORD-004"", ""ORD-005""]","[""ORD-001"", ""ORD-008""]","[""ORD-003"", ""ORD-006"", ""ORD-002"", ""ORD-007"", ""ORD-008"", ""ORD-001""]"
+sonnet,claude-sonnet-4-20250514,3,True,True,True,4,66.7,0,[],"[""ORD-004"", ""ORD-005""]","[""ORD-001"", ""ORD-008""]","[""ORD-003"", ""ORD-006"", ""ORD-002"", ""ORD-007"", ""ORD-008"", ""ORD-001""]"
+sonnet_consistency,,ALL,,,,,,,,,,jaccard_avg=1.000 identical=True unique_sets=1
+haiku,claude-haiku-4-5-20251001,1,True,False,True,5,83.3,0,[],"[""ORD-005""]","[""ORD-001""]","[""ORD-003"", ""ORD-006"", ""ORD-004"", ""ORD-007"", ""ORD-002"", ""ORD-001""]"
+haiku,claude-haiku-4-5-20251001,2,True,False,True,5,83.3,0,[],"[""ORD-005""]","[""ORD-001""]","[""ORD-003"", ""ORD-006"", ""ORD-004"", ""ORD-001"", ""ORD-007"", ""ORD-002""]"
+haiku,claude-haiku-4-5-20251001,3,True,False,True,5,83.3,0,[],"[""ORD-005""]","[""ORD-001""]","[""ORD-003"", ""ORD-006"", ""ORD-004"", ""ORD-007"", ""ORD-001"", ""ORD-002""]"
+haiku_consistency,,ALL,,,,,,,,,,jaccard_avg=1.000 identical=True unique_sets=1
