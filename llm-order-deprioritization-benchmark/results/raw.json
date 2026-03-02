@@ -1,0 +1,369 @@
+{
+  "benchmark_metadata": {
+    "description": "LLM Order Deprioritization Benchmark",
+    "date": "2026-03-01",
+    "baseline_ids": [
+      "ORD-003",
+      "ORD-006",
+      "ORD-002",
+      "ORD-005",
+      "ORD-004",
+      "ORD-007"
+    ],
+    "total_orders": 50,
+    "runs_per_model": 3,
+    "models": {
+      "opus": "claude-opus-4-20250514",
+      "sonnet": "claude-sonnet-4-20250514",
+      "haiku": "claude-haiku-4-5-20251001"
+    },
+    "method": "Each model called via Claude Code Agent tool with model parameter (opus/sonnet/haiku). Each call is an independent inference with no shared context."
+  },
+  "results": {
+    "opus": {
+      "runs": [
+        {
+          "model": "opus",
+          "model_id": "claude-opus-4-20250514",
+          "run": 1,
+          "raw_response": "[\"ORD-003\", \"ORD-006\", \"ORD-002\", \"ORD-005\", \"ORD-004\", \"ORD-007\"]",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-002",
+            "ORD-005",
+            "ORD-004",
+            "ORD-007"
+          ],
+          "format_valid": true,
+          "format_clean_json": true,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": false,
+          "overlap_count": 6,
+          "overlap_pct": 100.0,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-004",
+            "ORD-005",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [],
+          "extra_ids": [],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        },
+        {
+          "model": "opus",
+          "model_id": "claude-opus-4-20250514",
+          "run": 2,
+          "raw_response": "[\"ORD-003\", \"ORD-006\", \"ORD-002\", \"ORD-005\", \"ORD-004\", \"ORD-007\"]",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-002",
+            "ORD-005",
+            "ORD-004",
+            "ORD-007"
+          ],
+          "format_valid": true,
+          "format_clean_json": true,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": false,
+          "overlap_count": 6,
+          "overlap_pct": 100.0,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-004",
+            "ORD-005",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [],
+          "extra_ids": [],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        },
+        {
+          "model": "opus",
+          "model_id": "claude-opus-4-20250514",
+          "run": 3,
+          "raw_response": "[\"ORD-003\", \"ORD-006\", \"ORD-002\", \"ORD-005\", \"ORD-004\", \"ORD-007\"]",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-002",
+            "ORD-005",
+            "ORD-004",
+            "ORD-007"
+          ],
+          "format_valid": true,
+          "format_clean_json": true,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": false,
+          "overlap_count": 6,
+          "overlap_pct": 100.0,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-004",
+            "ORD-005",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [],
+          "extra_ids": [],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        }
+      ],
+      "consistency": {
+        "pairwise_jaccard_avg": 1.0,
+        "all_runs_identical": true,
+        "unique_sets": 1
+      }
+    },
+    "sonnet": {
+      "runs": [
+        {
+          "model": "sonnet",
+          "model_id": "claude-sonnet-4-20250514",
+          "run": 1,
+          "raw_response": "[\"ORD-003\", \"ORD-006\", \"ORD-002\", \"ORD-007\", \"ORD-008\", \"ORD-001\"]",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-002",
+            "ORD-007",
+            "ORD-008",
+            "ORD-001"
+          ],
+          "format_valid": true,
+          "format_clean_json": true,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": false,
+          "overlap_count": 4,
+          "overlap_pct": 66.66666666666666,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [
+            "ORD-004",
+            "ORD-005"
+          ],
+          "extra_ids": [
+            "ORD-001",
+            "ORD-008"
+          ],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        },
+        {
+          "model": "sonnet",
+          "model_id": "claude-sonnet-4-20250514",
+          "run": 2,
+          "raw_response": "[\"ORD-003\", \"ORD-006\", \"ORD-002\", \"ORD-007\", \"ORD-008\", \"ORD-001\"]",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-002",
+            "ORD-007",
+            "ORD-008",
+            "ORD-001"
+          ],
+          "format_valid": true,
+          "format_clean_json": true,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": false,
+          "overlap_count": 4,
+          "overlap_pct": 66.66666666666666,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [
+            "ORD-004",
+            "ORD-005"
+          ],
+          "extra_ids": [
+            "ORD-001",
+            "ORD-008"
+          ],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        },
+        {
+          "model": "sonnet",
+          "model_id": "claude-sonnet-4-20250514",
+          "run": 3,
+          "raw_response": "[\"ORD-003\", \"ORD-006\", \"ORD-002\", \"ORD-007\", \"ORD-008\", \"ORD-001\"]",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-002",
+            "ORD-007",
+            "ORD-008",
+            "ORD-001"
+          ],
+          "format_valid": true,
+          "format_clean_json": true,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": false,
+          "overlap_count": 4,
+          "overlap_pct": 66.66666666666666,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [
+            "ORD-004",
+            "ORD-005"
+          ],
+          "extra_ids": [
+            "ORD-001",
+            "ORD-008"
+          ],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        }
+      ],
+      "consistency": {
+        "pairwise_jaccard_avg": 1.0,
+        "all_runs_identical": true,
+        "unique_sets": 1
+      }
+    },
+    "haiku": {
+      "runs": [
+        {
+          "model": "haiku",
+          "model_id": "claude-haiku-4-5-20251001",
+          "run": 1,
+          "raw_response": "```json\n[\"ORD-003\", \"ORD-006\", \"ORD-004\", \"ORD-007\", \"ORD-002\", \"ORD-001\"]\n```",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-004",
+            "ORD-007",
+            "ORD-002",
+            "ORD-001"
+          ],
+          "format_valid": true,
+          "format_clean_json": false,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": true,
+          "overlap_count": 5,
+          "overlap_pct": 83.33333333333334,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-004",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [
+            "ORD-005"
+          ],
+          "extra_ids": [
+            "ORD-001"
+          ],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        },
+        {
+          "model": "haiku",
+          "model_id": "claude-haiku-4-5-20251001",
+          "run": 2,
+          "raw_response": "```json\n[\"ORD-003\", \"ORD-006\", \"ORD-004\", \"ORD-001\", \"ORD-007\", \"ORD-002\"]\n```",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-004",
+            "ORD-001",
+            "ORD-007",
+            "ORD-002"
+          ],
+          "format_valid": true,
+          "format_clean_json": false,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": true,
+          "overlap_count": 5,
+          "overlap_pct": 83.33333333333334,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-004",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [
+            "ORD-005"
+          ],
+          "extra_ids": [
+            "ORD-001"
+          ],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        },
+        {
+          "model": "haiku",
+          "model_id": "claude-haiku-4-5-20251001",
+          "run": 3,
+          "raw_response": "```json\n[\"ORD-003\", \"ORD-006\", \"ORD-004\", \"ORD-007\", \"ORD-001\", \"ORD-002\"]\n```",
+          "parsed_ids": [
+            "ORD-003",
+            "ORD-006",
+            "ORD-004",
+            "ORD-007",
+            "ORD-001",
+            "ORD-002"
+          ],
+          "format_valid": true,
+          "format_clean_json": false,
+          "count_correct": true,
+          "parse_error": null,
+          "used_markdown_fence": true,
+          "overlap_count": 5,
+          "overlap_pct": 83.33333333333334,
+          "overlap_ids": [
+            "ORD-002",
+            "ORD-003",
+            "ORD-004",
+            "ORD-006",
+            "ORD-007"
+          ],
+          "missed_ids": [
+            "ORD-005"
+          ],
+          "extra_ids": [
+            "ORD-001"
+          ],
+          "hallucinated_ids": [],
+          "hallucinated_count": 0
+        }
+      ],
+      "consistency": {
+        "pairwise_jaccard_avg": 1.0,
+        "all_runs_identical": true,
+        "unique_sets": 1
+      }
+    }
+  }
+}
