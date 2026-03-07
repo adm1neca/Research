@@ -1,0 +1,67 @@
+{
+  "config": {
+    "grid": "10\u00d75",
+    "n_locations": 50,
+    "items_per_route": 20,
+    "shift_hours": 8,
+    "n_runs": 3,
+    "baseline_speed_ms": 1.2,
+    "llm_model": "claude-sonnet-4-20250514"
+  },
+  "baseline": {
+    "avg_total_items_per_shift": 2811.3,
+    "avg_items_per_hour": 351.42,
+    "hourly_items_avg": [
+      360.0,
+      360.0,
+      340.0,
+      360.0,
+      340.0,
+      360.0,
+      346.67,
+      344.67
+    ],
+    "hourly_error_rate_avg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "throughput_degradation_pct": 4.26
+  },
+  "llm": {
+    "avg_total_items_per_shift": 2111.7,
+    "avg_items_per_hour": 263.96,
+    "hourly_items_avg": [
+      380.0,
+      360.0,
+      360.0,
+      253.33,
+      260.0,
+      180.0,
+      160.0,
+      158.33
+    ],
+    "hourly_error_rate_avg": [
+      0.0,
+      0.0,
+      0.0,
+      0.3693,
+      0.3179,
+      0.987,
+      1.0,
+      1.0519
+    ],
+    "throughput_degradation_pct": 58.33
+  },
+  "comparison": {
+    "items_gap_pct": -24.89,
+    "baseline_total": 2811.3,
+    "llm_total": 2111.7,
+    "extra_degradation_pct": 54.07
+  }
+}
