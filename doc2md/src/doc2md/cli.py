@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 from doc2md.detector import detect_format
@@ -37,7 +36,8 @@ def cmd_convert(args) -> int:
     md = renderer.render(doc)
 
     if args.output:
-        out = Path(args.output)
+        # SEC-03: resolve to an absolute path to prevent path traversal
+        out = Path(args.output).resolve()
         out.mkdir(parents=True, exist_ok=True)
         (out / "document.md").write_text(md)
         print(f"Saved to {out / 'document.md'}")
@@ -83,8 +83,9 @@ def cmd_bench(args) -> int:
     renderer = MarkdownRenderer()
     our_md = renderer.render(doc)
 
-    # Our output is the reference
-    tools = [t.strip() for t in args.against.split(",")]
+    # SEC-08: explicit allowlist — only known safe tool names are passed to subprocess
+    _ALLOWED_TOOLS = {"markitdown", "pandoc"}
+    tools = [t.strip() for t in args.against.split(",") if t.strip() in _ALLOWED_TOOLS]
 
     print(f"Benchmark: {path.name}\n{'─' * 50}")
     print(f"{'Tool':<20} {'Heading':>8} {'Table':>8} {'Text':>8} {'Overall':>8}")

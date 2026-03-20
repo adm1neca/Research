@@ -1,8 +1,16 @@
 """XLSX parser — merged-cell-aware conversion to Document IR."""
 from __future__ import annotations
 from pathlib import Path
-from doc2md.parsers.base import BaseParser
+from doc2md.parsers.base import BaseParser, check_file_size
 from doc2md.ir.nodes import Document, Table, Cell
+
+# SEC-05: patch stdlib XML parsers against entity-expansion (XML bomb) attacks
+# before openpyxl (which uses xml.etree.ElementTree) is loaded.
+try:
+    import defusedxml
+    defusedxml.defuse_stdlib()
+except ImportError:
+    pass  # defusedxml is optional; omitting reduces protection against XML bombs
 
 try:
     import openpyxl  # type: ignore
@@ -13,6 +21,8 @@ except ImportError as e:
 
 class XlsxParser(BaseParser):
     def parse(self, path: Path) -> Document:
+        # SEC-04: reject oversized files before loading into memory
+        check_file_size(path)
         wb = openpyxl.load_workbook(str(path), data_only=True)
         nodes = []
 
@@ -25,7 +35,7 @@ class XlsxParser(BaseParser):
         return Document(
             nodes=nodes,
             source_format="xlsx",
-            source_path=str(path),
+            source_path=path.name,  # SEC-09: filename only, no full path
         )
 
     def _parse_sheet(self, ws, sheet_name: str) -> Table | None:
