@@ -1,7 +1,7 @@
 """DOCX parser — style-aware conversion to Document IR."""
 from __future__ import annotations
 from pathlib import Path
-from doc2md.parsers.base import BaseParser
+from doc2md.parsers.base import BaseParser, check_file_size
 from doc2md.ir.nodes import (
     Document, Heading, Paragraph, Span, Table, Cell, List, ListItem,
 )
@@ -21,6 +21,8 @@ _LIST_STYLES = {"list bullet", "list bullet 2", "list number", "list number 2"}
 
 class DocxParser(BaseParser):
     def parse(self, path: Path) -> Document:
+        # SEC-04: reject oversized files before loading into memory
+        check_file_size(path)
         raw = DocxDocument(str(path))
         nodes = []
 
@@ -37,7 +39,7 @@ class DocxParser(BaseParser):
         return Document(
             nodes=nodes,
             source_format="docx",
-            source_path=str(path),
+            source_path=path.name,  # SEC-09: filename only, no full path
         )
 
     def _parse_paragraph(self, elem, raw):

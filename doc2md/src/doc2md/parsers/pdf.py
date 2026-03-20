@@ -1,8 +1,9 @@
 """PDF parser — font-size heuristic heading detection + pdfplumber tables."""
 from __future__ import annotations
+import logging
 import statistics
 from pathlib import Path
-from doc2md.parsers.base import BaseParser
+from doc2md.parsers.base import BaseParser, check_file_size
 from doc2md.ir.nodes import (
     Document, Heading, Paragraph, Span, Table, Cell, Image, FidelityWarning,
 )
@@ -17,9 +18,13 @@ try:
 except ImportError as e:
     raise ImportError("Install pdfplumber: uv add pdfplumber") from e
 
+_log = logging.getLogger(__name__)
+
 
 class PdfParser(BaseParser):
     def parse(self, path: Path) -> Document:
+        # SEC-04: reject oversized files before loading into memory
+        check_file_size(path)
         nodes = []
         warnings = []
 
@@ -54,8 +59,9 @@ class PdfParser(BaseParser):
                                     alt=f"image-p{pg_num + 1}-{image_counter}",
                                 ))
                                 image_counter += 1
-                        except Exception:
-                            pass
+                        except Exception as exc:
+                            # SEC-10: log instead of silently swallowing
+                            _log.warning("PDF image extraction failed (xref=%s): %s", block.get("xref"), exc)
                         continue
 
                     if block["type"] != 0:
@@ -73,7 +79,7 @@ class PdfParser(BaseParser):
         return Document(
             nodes=nodes,
             source_format="pdf",
-            source_path=str(path),
+            source_path=path.name,  # SEC-09: filename only, no full path
             warnings=warnings,
         )
 

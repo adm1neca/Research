@@ -5,7 +5,7 @@ description = "High-fidelity, MIT-licensed document-to-Markdown converter"
 readme = "README.md"
 authors = [{ name = "Claude", email = "noreply@anthropic.com" }]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["defusedxml>=0.7"]
 
 [project.optional-dependencies]
 pdf  = ["pymupdf>=1.24", "pdfplumber>=0.11", "pytesseract>=0.3"]
